@@ -1,0 +1,185 @@
+作业:
+
+1 获取字典adict['name']的值，如果没有找到，则返回'Not Found'
+参考答案
+1.	>>> adict.get('name', 'Not Found')
+2 遍历字典adict，通过两种方法取出字典的key和value。
+参考答案
+1.	>>> for key in adict:
+2.	...   print('%s: %s' % (key, adict[key]))
+3.	
+4.	
+5.	>>> for key, val in adict.items():
+6.	...   print('%s: %s' % (key, val))
+3 aset和bset是两个可变集合，举例说明什么是交集、并集和差补。
+参考答案
+•	交集：aset & bset，取出两个集合中都包含的元素 
+•	并集：aset | bset，取出两个集合中所有的元素 
+•	差补：aset - bset，取出在第一个集合中有，而第二个集合中没有的元素 
+4 通过time模块，显示当前时间：年月-月-日 时：分：秒
+参考答案
+1.	>>> import time
+2.	>>> time.strftime('%Y-%m-%d %H:%H:%S')
+5 time.time()返回的是什么？
+参考答案
+•	返回的是时间戳。也就是1970年1月1日0点到执行time.time()之间的秒数。 
+6 写出异常处理的语法结构
+参考答案
+1.	try:
+2.	    有可能发生异常的语句
+3.	except (要补获的异常):
+4.	    发生异常时执行的语句
+5.	else:
+6.	    异常不发生才执行的语句
+7.	finally:
+8.	    不管是否发生异常都要执行的语句
+7 os.path模块有哪些判断路径的方法？
+参考答案
+•	os.path.isabs(path)：判断是否为绝对路径 
+•	os.path.isfile(path)：判断是否为文件 
+•	os.path.ismount(path)：判断是否为挂载点 
+•	os.path.isdir(path)：判断是否为目录 
+•	os.path.islink(path)：判断是否为链接 
+•	os.path.exists(path)：判断是否存在 
+8 pickle模块的主要作用和方法是什么？
+参考答案
+•	pickle模块可以将任意的数据类型保存到文件中，并且可以无损的将其取出来 
+•	pickle.dump()：用于将数据存入文件 
+•	pickle.load()：用于将数据从文件中取出 
+
+1 以下函数定义是否正确？为什么？
+1.	def myfunc(age=22, name):
+2.	    pass
+参考答案
+•	不正确。因为函数的参数的一个要求是非关键字参数必须在关键字参数前面。 
+2 编写函数时，如果函数的参数个数不固定，可能有N个也可能一个没有，该如何解决？
+参考答案
+•	使用参数组，如： 
+•	*arg：表示将非关键字参数保存到名为arg的元组中 
+•	**kwarg：表示将关键字参数保存到名为kwarg的字典中 
+3 请将以下函数改为匿名函数。
+1.	def add(x, y):
+2.	    return x + y
+参考答案
+1.	add = lambda x, y: x + y
+4 请通过map()函数简化以下代码。
+1.	time_str = '2019-12-1'
+2.	time_str = time_str.split('-')
+3.	year = int(time_str[0])
+4.	month = int(time_str[1])
+5.	date = int(time_str[2])
+参考答案
+1.	year, month, date = map(int, time_str.split('-'))
+5 分析以下代码。请问变量x的值是什么？为什么？
+1.	x = 10
+2.	
+3.	def change_x():
+4.	    global x
+5.	    x = 'hello'
+6.	
+7.	print(x)
+参考答案
+•	x的值是10。因为change_x函数没有调用。 
+6 使用递归函数，计算6的阶乘。
+参考答案
+1.	def fac(n):
+2.	    if n == 1:
+3.	        return 1
+4.	    return n * fac(n - 1)
+5.	
+6.	if __name__ == '__main__':
+7.	    print(fac(6))
+7 Python的模块命名有哪些约定？
+参考答案
+•	首字符可以是字母或下划线 
+•	后续字符可以是字母、数字或下划线 
+•	区分大小写 
+8 python文件和模块的关系是什么？
+参考答案
+•	文件是物理上组织的代码的形式，模块是逻辑上组织代码的形式 
+•	将文件的扩展名.py移除就是模块名 
+9 在导入模块时，python到哪些路径查找模块文件。
+参考答案
+•	sys.path所定义的路径 
+•	PYTHONPATH环境变量所定义的路径 
+
+
+
+
+1 在OOP编程时，常用的magic魔法方法有哪些？
+参考答案
+•	__init__：实例化类实例时默认会调用的方法 
+•	__str__：打印/显示实例时调用方法 
+•	__call__：用于创建可调用的实例 
+2 在OOP编程时，什么时候使用组合，什么时候使用派生？
+参考答案
+•	当类之间有显著的不同，并且较小的类是较大的类所需要的组件时组合表现得很好 
+•	但当设计“相同的类但有一些不同的功能”时，使用派生 
+3 如何用正则表达式匹配全部是数字的字符串？
+参考答案
+•	'^\d+$' 
+•	'^[0-9]+$' 
+4 re.match和re.search的区别是什么？
+参考答案
+•	re.match只能从字符串的开头匹配 
+•	re.search可以在字符串的任意位置匹配 
+5 通过什么方法可以将以下正则表达式匹配到的内容提取出来？
+1.	m = re.search('f..', 'seafood')
+参考答案
+1.	m.group()
+6 如何通过正则表达式匹配字符串中所有符合条件的子串。
+参考答案
+•	re.findall方法 
+•	re.finditer方法 
+7 re.compile作用是什么？
+参考答案
+•	对正则表达式模式进行编译，返回一个正则表达式对象 
+•	在大量匹配的情况下，可以提升效率 
+•	
+
+
+
+
+
+1 安装pymysql模块的方法有哪些？
+参考答案
+•	在线安装 
+1.	pip install pymysql
+•	访问http://pypi.python.org，下载pymysql模块后本地通过pip安装 
+1.	pip3 install PyMySQL-0.8.0.tar.gz
+•	访问http://pypi.python.org，下载pymysql模块后本地安装 
+1.	tar xzf PyMySQL-0.8.0.tar.gz
+2.	cd PyMySQL
+3.	python3 setup.py install
+2 通过pip在线安装模块，如何提升速度？
+参考答案
+•	pip直接安装模块时，连接到的是国外官网。如果采用国内镜像站点，可以提升效率，方法如下： 
+1.	[root@localhost ~]# mkdir ~/.pip/
+2.	[root@localhost ~]# vim ~/.pip/pip.conf 
+3.	[global]
+4.	index-url=http://pypi.douban.com/simple/
+5.	[install]
+6.	trusted-host=pypi.douban.com
+3 使用pymysql操作数据库的一般流程是什么？
+参考答案
+•	先连接数据库 
+•	创建游标 
+•	通过游标对数据库进行各项操作 
+•	如果是增删改操作，需要确认 
+•	关闭到数据库的连接 
+4 什么是ORM，它的作用是什么？
+参考答案
+•	ORM即Object-Relational Mapping，对象关系映射 
+•	它的作用是在关系型数据库和业务实体对象之间作一个映射，这样，我们在具体的操作业务对象的时候，就不需要再去和复杂的SQL语句打交道，只需简单的操作对象的属性和方法。 
+5 sqlalchemy如何表示数据库的数据类型？
+参考答案
+•	sqlalchemy为每种数据类型定义了相应的class。比如整型定义为Integer，varchar类型定义为String等。 
+
+
+
+
+
+
+
+
+
